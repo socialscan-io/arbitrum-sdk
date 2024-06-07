@@ -142,6 +142,8 @@ export abstract class L1ToL2Message {
     const chainId = BigNumber.from(l2ChainId)
     const msgNum = BigNumber.from(messageNumber)
 
+    const rl2CallValue = ethers.utils.RLP.encode(formatNumber(l2CallValue))
+
     const fields: any[] = [
       formatNumber(chainId),
       zeroPad(formatNumber(msgNum), 32),
